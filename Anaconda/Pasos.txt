@@ -1,0 +1,18 @@
+---DESACTIVAR ENTORNO DE ANACONDA----
+1. Desactivar el entorno de tu maquina y que no inicie de manera automatica cuando prendas tu computadora:
+conda config --set auto_activate_base false
+
+2. Ver la lista de entornos que tienes:
+conda env list
+
+3. Activar un entorno:
+conda activate "Fedora"
+
+4. Desactivar un entorno: 
+conda deactivate "Fedora"
+
+5. Entrar a jupyter desde la termninal de tu entorno:
+jupyter-notebook
+
+6. Desactivar entorno base
+conda deactivate
