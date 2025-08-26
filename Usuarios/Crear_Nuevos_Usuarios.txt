@@ -1,0 +1,16 @@
+--------- Crear un usuario nuevo en Linux--------------
+
+1. Ubicarte en la terminal	
+
+2. ingresa como usuario root:
+			sudo su
+
+3. Escribir:
+			adduser Nombre_Usuario
+
+4. Escribir la contraseña:
+
+		passwd Nombre_Usuario
+		+++++++++
+
+

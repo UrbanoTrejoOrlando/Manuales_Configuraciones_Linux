@@ -1,0 +1,13 @@
+--Crea un nuevo con permisos de sudo
+sudo adduser vista
+--Crea una contraseña
+sudo passwd vista
+password
+--Verificar si el usuario se creo correctamente
+getent passwd vista
+-- Agregar permisos al administrador
+sudo usermod -aG wheel vista
+
+
+
+
