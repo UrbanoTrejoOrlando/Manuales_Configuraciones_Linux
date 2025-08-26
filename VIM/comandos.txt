@@ -1,0 +1,51 @@
+--------COMANDOS DE VIM-------
+1. INSERTAR
+		a. esc + i
+		b. esc + a
+
+2. MOVIMIENTOS
+		a. ABAJO 		esc + j 
+		b.	ARRIBA 		esc + k			
+		c. IZQUIERDA 	esc + h
+		d. DERECHA 		esc + l
+
+3. MOVIMIENTOS MAS LARGOS
+		a. ADELANTE  esc + e
+		b. ATRAS     esc + b
+
+4. BORRAR
+		a. BORRAS  														esc + x
+		b. BORRAR TODA UNA LINEA							 		esc + d$
+		c. BORRAR TODA UNA LINEA 									esc + dd
+		d. BORRAR CANTIDAD DE PALABRAS HACIA ADELANTE 		esc + d5e
+		e. BORRAR CANTIDAD DE PALABRAS HACIA ATRAS 			esc + d5b
+		 
+
+5. GUARDAR 
+		a. GUADAR CAMBIOS 				esc + w
+		b. GUARDAR CAMBIOS Y SALIR		esc + wq
+
+6. REDIRECCIONARTE EN CAMBIOS
+		a. REGRESAR AL CAMBIO ANTERIOR  	esc + o
+		b. LLEGAR AL CAMBIO SIGUIENTE  	esc + i 
+		c. DESHACER CAMBIOS 					esc + u 
+	
+7. REMPLAZAR UN CARACTER
+		a. REMPLAZAR UNA LETRA O SIGNO 	esc + r + letra, simbolo o numero
+																	a cambiar
+8. UBICACION EN EL CODIGO
+		a. UBICARSE EN LA PRIMERA LINEA DEL CODIGO 		esc + gg
+		b. UBICARSE EN LA ULTIMA LINEA DEL CODIGO			esc + G
+		c. UBICARSE EN UNA LINEA EN ESPECIFICO 			esc + 15g , 12G
+
+7. UBICAR UNA PALABRA EN ESPECIFICO
+		a. esc + /nombre_palabra
+
+8. LINEAS
+		a. UBICACION AL PRINCIPIO DE LA LINEA 	esc + 0 	
+		b. UBICACION AL FINAL DE LA LINEA 		esc + $ 	
+
+9. REMPLAZAR PALABRAS
+		a. Remplazar una palabra 										esc:s/Palabra/Palabra_Nueva
+		b. Remplazar la misma palabra en una linea				esc:s/Palabra/Palabra_Nueva/g
+		c. Remplazar una palabra pero en todo el documento		esc:%s/Palabra/Palabra_Nueva/g
