@@ -1,0 +1,7 @@
+1- Veificar si KVM esta activo 
+
+lsmod | grep kvm
+
+2- Desabilitar los servicios de kvm 
+
+sudo modprobe -r kvm_intel kvm
