@@ -1,0 +1,145 @@
+-----PASOS PARA PODER SUBIR TUS ARCHIVOS EN GIT Y GITLAB-----
+
+---- Instalacion y configuracion de Git ----
+1) Abrir la terminal y revisar si tenemos instalado git:
+	git --version
+2) En caso de no tenerlo instalado escribir en la terminal:
+	sudo dnf install git
+3) Despues hay que vincular tu cuenta de usuario y correo en la terminal.
+
+		git config --global user.name "Nombre usuario"
+      git config --global user.email "Correo Electronico"
+      git config --list
+
+Vamos a crear una llave ssh la cual nos va a servir para que cuando tengamos que subir un archivo a git no pida contraseña.
+4) En la terminal escribir: ls -la
+	5) Nos percatamos que exista una carpeta llamada .ssh
+	5.1) Si no encuentas la carpeta hay dos maneras de resolver esto.
+		4.1.1) Crear una carpeta con esa terminacio:
+				mkdir ~/.ssh
+		4.1.2) Ejecutar este comando para corroborar que exista la carpeta.
+				ls -la | grep ssh
+6) Accedemos a la carpeta:
+	cd .ssh
+7) Ejecutamos un "ls" para comprobar que no exista nada en la carpeta
+8) Creamos una llave que permitira conectar nuestra computadora con la cuenta de git,
+   Ejecutamos el siguiente comando:
+	ssh-keygen
+
+8.1) Generara un mensaje como el siguiente:
+
+Enter file in which to save the key (/home/caplando/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/caplando/.ssh/id_rsa
+Your public key has been saved in /home/caplando/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:938yL0jZJJeUHh38hSE/dfdy83chR0711j0qhTeEmFM caplando@dojocrlnx
+The key's randomart image is:
++---[RSA 3072]----+
+|          +Eo.oOB|
+|         + .ooOoX|
+|          .. B+OX|
+|            + X=*|
+|        S .. B  +|
+|         . .+ . o|
+|           ...   |
+|            ..+ .|
+|              .*.|
++----[SHA256]-----+
+
+9) Escribimos un "ls" para comprobar que este haya dos archivos en nuestra carpeta
+10) Escribir en la terminal:
+	cat id_rsa.pub
+Esto nos va a mandar un mensaje el cual debemos de copiar, una vez hecho esto, nos dirigimos a git en el navegador de preferencia.
+11) En configuraciones en el apartado de "SSH and GPG Keys", creamos un "NEW SSH KEYS"
+	Damos un nombre y en la descripcion pegamos la ruta que habiamos copiado antes y 	 damos crear.
+Con esto hemos creado una llave ssh para que no pida contraseña al momento de subir archivos al git desde la terminal
+d
+
+-------Subir archivos a Git---------------
+
+1) Crear repositorio en Git .
+2) En el apartado "CODE" copiamos la ruta que nos aparace.
+3) En la terminal ingresamos
+	git clone "ruta copiada"
+Con esto hemos clonado nuestro repositorio en nuestros archivos ahora podemos crear archivos en esa carpeta
+Una vez teniendo esto es momento de subir los archivos.
+4) En la terminal escribir:
+	git status
+Para saber que ejercicios hace falta subir.
+5) En la terminal escribir:
+	git add Nombre_Archivo
+Para subir el archivo.
+6) En la terminal escribir:
+	glt commit -m "Descripcion ejercicio" Nombre_Archivo
+Para tener una descripcion del problema.
+7) Por ultimo escribir en la terminal.
+	git push
+Esto para guardar los cambios
+Con esto podemos subir archivos a git desde la terminal de linux.
+
+---Configuraciones Extras------
+
+1. git status -s
+	?? No han sido agregados.
+	A: El archivo se agrego correctamente.
+	M: El archivo se modifico.
+	AM: El archivo se modifico, pero falta que se vuelva a agregar.
+
+2. git diff
+	Muestras los cambios que se hicieron despues de la modificacion
+
+3. git config --global core.editor nombre_editor
+			git config --global core.editor vim
+			git config --global core.editor nano
+			git config --global core.editor Emacs
+	Este comando lo que hace es que establece el editor con el que vas a trabajar o modificar en Git
+
+
+4. git log
+	Muestra las confirmaciones hechas sobre el repositorio en orden cronologico inverso
+	git log -p muestra diferencias introducidas en cada confirmación.
+	git log -2 muestra los dos ultimos cambios
+	git log -p -2
+
+	git log --pretty=format:"%h - %an, %ar : %s" -2
+	%ae  --Dirección del Autor
+
+5 Alias en Git
+	git config --global alias.ci commit
+	git config --global alias.a add
+	git config --global alias.p push
+	git config --global alias.st status
+
+	--------------------------------------
+	git config --global alias.br branch
+	git config --global alias.co checkout
+
+
+    --Inicializa tu repositorios en la rama main
+    git config --global init.defaultBranch main
+    git branch -m main
+
+
+6. Ramificaciones
+	Apuntador especisl "HEAD"
+
+   git log --oneline --decorate  -Sirve para ver en que rama nos encontramos
+	git log --oneline --decorate --graph --all  -Muestra el historial de confirmaciones indicando donde
+																estan los apuntadores de cada rama
+7. git branch
+		git branch nombre_rama Crear una rama
+
+8. git checkout
+		git checkout nombre_rama Cambiar de una rama a otra
+	--- ATAJO ---
+		git checkout -b nombre_rama  Crea la rama y se directamente a ella
+		git co -b nombre_rama
+
+--Descargar los cambios de un repositorio de github a tu repositorio local
+9 git pull origin main
+
+
+--Revisar el historial de commits que se hicieron en un repositorio--
+git log --since="2025-08-25 00:00" --until="2025-08-25 23:59" --pretty=oneline | wc -l
