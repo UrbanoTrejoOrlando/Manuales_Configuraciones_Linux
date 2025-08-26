@@ -25,5 +25,4 @@ Este repositorio contiene una serie de manuales paso a paso para configurar dive
 
 2. Navega a la carpeta del manual que necesites
   ```bash
-   cd git ``` #Ejemplo
-   
+   cd git # Ejemplo
